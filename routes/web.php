@@ -1,0 +1,36 @@
+<?php
+
+use App\Http\Controllers\AgeController;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\VideoController;
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider and all of them will
+| be assigned to the "web" middleware group. Make something great!
+|
+*/
+
+Route::get('/', HomeController::class);
+
+Route::get('/videoteque', [AgeController::class, 'index'])->name('ages.index');
+Route::get('videoteque/categories/{id:id}', [AgeController::class, 'categories'])->name('categories.index');
+Route::get('videoteque/categories/videos/{category_id}/{age_id}', [AgeController::class, 'videos'])->name('videos.index');
+Route::get('videoteque/categories/subcategories/{subcategory_id}/{category_id}/{age_id}', [AgeController::class, 'subcategories'])->name('subcategories.index');
+
+//Route::get('/videoteque', [VideoController::class, 'index'])->name('videos.index');
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
+    // Route::get('/dashboard', function () {
+    //     return view('dashboard');
+    // })->name('dashboard');
+});
