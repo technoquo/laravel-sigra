@@ -84,21 +84,17 @@
                 <div
                     class="grid grid-cols-2 gap-8 text-gray-500 sm:gap-12 md:grid-cols-2 lg:grid-cols-4 dark:text-gray-400">
                     <a href="#" class="flex justify-center items-center">
-                        <img src="https://sigra.codigoaccesibleconleo.com/wp-content/uploads/2023/05/EN_co_fundedvertical_RGB_Monochrome-285x300.png"
-                            alt="">
+                        <img src="{{ asset('images/EN_co_fundedvertical_RGB_Monochrome-285x300.png') }}" alt="">
                     </a>
                     <a href="#" class="flex justify-center items-center">
-                        <img src="https://sigra.codigoaccesibleconleo.com/wp-content/uploads/2023/04/fundation-300x219.png"
-                            alt="">
+                        <img src="{{ asset('images/fundation-300x219.png') }}" alt="">
                     </a>
                     <a href="#" class="flex justify-center items-center">
-                        <img src="https://sigra.codigoaccesibleconleo.com/wp-content/uploads/2023/05/cap48.png"
-                            alt="">
+                        <img src="{{ asset('images/cap48.png') }}" alt="">
                     </a>
 
                     <a href="#" class="flex justify-center items-center">
-                        <img src="https://sigra.codigoaccesibleconleo.com/wp-content/uploads/2023/05/eramust-removebg-preview-300x170.png"
-                            alt="">
+                        <img src="{{ asset('images/eramust-removebg-preview-300x170.png') }}" alt="">
                     </a>
                 </div>
             </div>
