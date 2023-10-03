@@ -41,10 +41,14 @@ class AgeController extends Controller
 
         // $categories = $video->categories;
 
-        return view('categories.index', [
-            'categories' => $categories,
-            'id' => $id
-        ]);
+        if (isset($categories)) {
+            return view('categories.index', [
+                'categories' => $categories,
+                'id' => $id
+            ]);
+        } else {
+            return view('notfound.index');
+        }
     }
 
     public function videos($category_id, $age_id)

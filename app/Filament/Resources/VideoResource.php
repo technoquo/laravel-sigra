@@ -84,6 +84,8 @@ class VideoResource extends Resource
                     ->searchable()
                     ->sortable(),
                 TextColumn::make('type')
+                    ->searchable()
+                    ->sortable(),
 
             ])
             ->filters([

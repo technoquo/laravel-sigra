@@ -29,7 +29,7 @@
 </head>
 
 <body class="font-sans antialiased">
-
+    @yield('css')
     @include('layouts.partials.header')
     @yield('hero')
 
@@ -41,6 +41,7 @@
 
 
     @stack('modals')
+    @yield('scripts')
 
     @livewireScripts
 </body>
