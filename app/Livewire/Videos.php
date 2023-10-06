@@ -51,7 +51,7 @@ class Videos extends Component
 
 
             if ($video->subcategory_id) {
-                dd('ss');
+
                 $videos = SubCategory::with('videos')->get();
             } else {
 

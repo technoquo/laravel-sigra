@@ -44,9 +44,13 @@
 
         </div>
     </div>
+    @php
+        $video = $this->videos->sortBy('name_video')->first();
+    @endphp
 
-
-    @include('videos.partials.search-box')
+    @if ($video && $video->vimeo)
+        @include('videos.partials.search-box')
+    @endif
 
     <div class="flex flex-wrap gap-5 justify-center py-8">
 
