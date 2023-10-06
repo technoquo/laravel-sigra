@@ -1,23 +1,58 @@
 <x-app-layout>
-    @section('css')
-        <link rel="stylesheet" href="{{ asset('css/modal-video.min.css') }}">
-    @endsection
+    <div class="grid grid-cols-6 gap-4">
+        <div class="col-end-7 col-span-2 web-hidden">
 
+            <nav class="flex" aria-label="Breadcrumb">
+                <ol class="inline-flex items-center space-x-1 md:space-x-3">
+                    <li class="inline-flex items-center">
+                        <a href="{{ route('ages.index') }}"
+                            class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white">
+                            <svg class="w-3 h-3 mr-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                fill="currentColor" viewBox="0 0 20 20">
+                                <path
+                                    d="m19.707 9.293-2-2-7-7a1 1 0 0 0-1.414 0l-7 7-2 2a1 1 0 0 0 1.414 1.414L2 10.414V18a2 2 0 0 0 2 2h3a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h3a2 2 0 0 0 2-2v-7.586l.293.293a1 1 0 0 0 1.414-1.414Z" />
+                            </svg>
+                            {{ $age }}
+                        </a>
+                    </li>
+                    <li>
+                        <div class="flex items-center">
+                            <svg class="w-3 h-3 text-gray-400 mx-1" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="m1 9 4-4-4-4" />
+                            </svg>
+                            <a wire:navigate href="{{ route('categories.index', ['id' => $age_id]) }}"
+                                class="ml-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ml-2 dark:text-gray-400 dark:hover:text-white">
+                                {{ $category }}
+                            </a>
 
-    {{-- <div class="flex flex-wrap justify-center py-4 px-8 mx-auto">
+                        </div>
+                    </li>
+                    @if (isset($subcategory))
+                        <li>
+                            <div class="flex items-center">
+                                <svg class="w-3 h-3 text-gray-400 mx-1" aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2" d="m1 9 4-4-4-4" />
+                                </svg>
+                                <a href="{{ url()->previous() }}"
+                                    class="ml-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ml-2 dark:text-gray-400 dark:hover:text-white">
+                                    {{ $subcategory }}
+                                </a>
 
-        @foreach ($videos as $video)
-            <div>
-                <img class="h-auto w-80 rounded-lg" src="https://vumbnail.com/{{ $video->vimeo }}.jpg"
-                    alt="{{ $video->name }}" />
-                <iframe width="100%" height="200" src="https://player.vimeo.com/video/{{ $video->vimeo }}"
-                    frameborder="0" allow="autoplay; encrypted-media" allowfullscreen=""></iframe> 
-                nombre: {{ $video->type }}
-            </div>
-        @endforeach
+                            </div>
+                        </li>
+                    @endif
 
+                </ol>
+            </nav>
 
-    </div> --}}
+        </div>
+    </div>
+    @include('videos.partials.search-box')
+
     <div class="flex flex-wrap gap-5 justify-center py-8">
 
         @foreach ($videos->sortBy('name_video') as $video)
@@ -32,8 +67,8 @@
                             {{ $video->name_video }}</h5>
                     </a>
                     @if ($video->type === 'publique')
-                        <a class="js-modal-btn inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-gray-200 rounded-lg hover:bg-slate-800 focus:ring-4 focus:outline-none focus:ring-slate-300 dark:bg-slate-600 dark:hover:bg-slate-700 dark:focus:ring-slate-800"
-                            data-video-id="{{ $video->vimeo }}">
+                        <a href="{{ route('videos.show', ['category_id' => $video->category_id, 'age_id' => $video->age_id, 'video_id' => $video->video_id]) }}"
+                            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-gray-200 rounded-lg hover:bg-slate-800 focus:ring-4 focus:outline-none focus:ring-slate-300 dark:bg-slate-600 dark:hover:bg-slate-700 dark:focus:ring-slate-800">
                             <img class="h-8" src="{{ asset('images/sign-language.svg') }}" alt="" />
 
                         </a>
@@ -54,13 +89,5 @@
             </div>
         @endforeach
     </div>
-    @section('scripts')
-        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-        <script type="text/javascript" src="{{ asset('js/modal/jquery-modal-video.min.js') }}"></script>
-        <script>
-            $(".js-modal-btn").modalVideo({
-                channel: 'vimeo'
-            });
-        </script>
-    @endsection
+
 </x-app-layout>

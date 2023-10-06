@@ -104,14 +104,16 @@
                             aria-current="page">Home</a>
                     </li>
                     <li>
-                        <a href="{{ route('ages.index') }}"
+                        <a wire:navigate href="{{ route('ages.index') }}"
                             class="text-gray-900 dark:text-white hover:underline">Vidéothèque</a>
                     </li>
                     <li>
-                        <a href="#" class="text-gray-900 dark:text-white hover:underline">Abonnements</a>
+                        <a wire:navigate href="#"
+                            class="text-gray-900 dark:text-white hover:underline">Abonnements</a>
                     </li>
                     <li>
-                        <a href="#" class="text-gray-900 dark:text-white hover:underline">Mon Sigra</a>
+                        <a wire:navigate href="#" class="text-gray-900 dark:text-white hover:underline">Mon
+                            Sigra</a>
                     </li>
                 </ul>
             </div>

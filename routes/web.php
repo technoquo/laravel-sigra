@@ -1,9 +1,14 @@
 <?php
 
 use App\Http\Controllers\AgeController;
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\VideoController;
+use App\Livewire\Categories;
+use App\Livewire\Videos;
+use App\Models\Category;
+use App\Models\Video;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,8 +24,9 @@ use App\Http\Controllers\VideoController;
 Route::get('/', HomeController::class);
 
 Route::get('/videoteque', [AgeController::class, 'index'])->name('ages.index');
-Route::get('videoteque/categories/{id:id}', [AgeController::class, 'categories'])->name('categories.index');
-Route::get('videoteque/categories/videos/{category_id}/{age_id}', [AgeController::class, 'videos'])->name('videos.index');
+Route::get('videoteque/categories/{id:id}', [CategoryController::class, 'index'])->name('categories.index');
+Route::get('videoteque/categories/videos/{category_id}/{age_id}', Videos::class)->name('videos.index');
+Route::get('videoteque/categories/videos/{category_id}/{age_id}/{video_id}', [VideoController::class, 'show'])->name('videos.show');
 Route::get('videoteque/categories/subcategories/{subcategory_id}/{category_id}/{age_id}', [AgeController::class, 'subcategories'])->name('subcategories.index');
 
 //Route::get('/videoteque', [VideoController::class, 'index'])->name('videos.index');
