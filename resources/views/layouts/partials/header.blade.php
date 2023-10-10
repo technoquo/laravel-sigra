@@ -108,7 +108,7 @@
                             class="text-gray-900 dark:text-white hover:underline">Vidéothèque</a>
                     </li>
                     <li>
-                        <a wire:navigate href="#"
+                        <a wire:navigate href="{{ route('abonnements.index') }}"
                             class="text-gray-900 dark:text-white hover:underline">Abonnements</a>
                     </li>
                     <li>

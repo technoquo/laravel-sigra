@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AbonnementController;
 use App\Http\Controllers\AgeController;
 use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
@@ -28,8 +29,8 @@ Route::get('videoteque/categories/{id:id}', [CategoryController::class, 'index']
 Route::get('videoteque/categories/videos/{category_id}/{age_id}', Videos::class)->name('videos.index');
 Route::get('videoteque/categories/videos/{category_id}/{age_id}/{video_id}', [VideoController::class, 'show'])->name('videos.show');
 Route::get('videoteque/categories/subcategories/{subcategory_id}/{category_id}/{age_id}', [AgeController::class, 'subcategories'])->name('subcategories.index');
+Route::get('abonnements', [AbonnementController::class, 'index'])->name('abonnements.index');
 
-//Route::get('/videoteque', [VideoController::class, 'index'])->name('videos.index');
 
 Route::middleware([
     'auth:sanctum',

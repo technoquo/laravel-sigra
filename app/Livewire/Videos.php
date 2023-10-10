@@ -16,6 +16,7 @@ class Videos extends Component
 {
     public $category_id;
     public $age_id;
+
     public $video_id;
 
 
@@ -40,7 +41,9 @@ class Videos extends Component
     {
 
         $age = Age::find($this->age_id);
+
         $this->age_id = $age->id;
+
 
 
         $videos = $age->videos;
