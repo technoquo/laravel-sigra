@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\VideoController;
 use App\Livewire\Categories;
+use App\Livewire\Monsigra;
 use App\Livewire\Videos;
 use App\Models\Category;
 use App\Models\Video;
@@ -30,6 +31,10 @@ Route::get('videoteque/categories/videos/{category_id}/{age_id}', Videos::class)
 Route::get('videoteque/categories/videos/{category_id}/{age_id}/{video_id}', [VideoController::class, 'show'])->name('videos.show');
 Route::get('videoteque/categories/subcategories/{subcategory_id}/{category_id}/{age_id}', [AgeController::class, 'subcategories'])->name('subcategories.index');
 Route::get('abonnements', [AbonnementController::class, 'index'])->name('abonnements.index');
+Route::get('monsigra', Monsigra::class)->name('monsigra.index');
+Route::get('videoteque/categories/videos/{vimeo}', [VideoController::class, 'monsigra'])->name('mon.index');
+
+
 
 
 Route::middleware([

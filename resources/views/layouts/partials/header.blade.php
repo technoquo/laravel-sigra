@@ -112,7 +112,8 @@
                             class="text-gray-900 dark:text-white hover:underline">Abonnements</a>
                     </li>
                     <li>
-                        <a wire:navigate href="#" class="text-gray-900 dark:text-white hover:underline">Mon
+                        <a wire:navigate href="{{ route('monsigra.index') }}"
+                            class="text-gray-900 dark:text-white hover:underline">Mon
                             Sigra</a>
                     </li>
                 </ul>

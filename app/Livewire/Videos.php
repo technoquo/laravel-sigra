@@ -58,20 +58,23 @@ class Videos extends Component
                 $videos = SubCategory::with('videos')->get();
             } else {
 
-                $videos = DB::table('videos as v')
-                    ->select('v.id as video_id', 'v.age_id', 'a.name as age', 'v.name as name_video', 'v.vimeo', 'c.id as category_id', 'c.name', 'c.image', 'v.type')
-                    ->join('ages as a', 'a.id', '=', 'v.age_id')
-                    ->join('category_video as cav', 'cav.video_id', '=', 'v.id')
-                    ->join('categories as c', 'c.id', '=', 'cav.category_id')
-                    ->where('c.id', '=', $this->category_id)
-                    ->where('a.id', '=', $this->age_id)
+                $videos = DB::table('category_video as cv')
+                    ->join('categories as c', 'cv.category_id', '=', 'c.id')
+                    ->join('videos as v', 'cv.video_id', '=', 'v.id')
+                    ->join('ages as a', 'v.age_id', '=', 'a.id')
+                    ->select('v.name as name_video', 'v.vimeo', 'v.type', 'a.name as age', 'cv.category_id', 'a.id as age_id', 'cv.video_id')
+                    ->where('c.id', $this->category_id)
+                    ->where('a.id', $this->age_id)
                     ->where('v.name', 'like', "%{$this->search}%")
                     ->get();
             }
         }
 
+
+
         return $videos;
     }
+
 
 
 

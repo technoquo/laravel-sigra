@@ -17,7 +17,7 @@ return new class extends Migration
             $table->integer('price');
             $table->integer('qty');
             $table->string('url');
-            $table->integer('time');          =
+            $table->integer('time');
             $table->boolean('status')->default(true);
             $table->timestamps();
         });

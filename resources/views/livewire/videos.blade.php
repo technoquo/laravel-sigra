@@ -1,38 +1,67 @@
 <div>
+    @if ($this->videos->sortBy('name_video')->first())
+        <div class="grid grid-cols-6 gap-4">
+            <div class="col-end-7 col-span-2 web-hidden">
+                <nav class="flex" aria-label="Breadcrumb">
+                    <ol class="inline-flex items-center space-x-1 md:space-x-3">
+                        <li class="inline-flex items-center">
+                            <a href="{{ route('ages.index') }}"
+                                class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white">
+                                <svg class="w-3 h-3 mr-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                    fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="m19.707 9.293-2-2-7-7a1 1 0 0 0-1.414 0l-7 7-2 2a1 1 0 0 0 1.414 1.414L2 10.414V18a2 2 0 0 0 2 2h3a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h3a2 2 0 0 0 2-2v-7.586l.293.293a1 1 0 0 0 1.414-1.414Z" />
+                                </svg>
+                                @if ($this->videos->sortBy('name_video')->first()->age)
+                                    {{ $this->videos->sortBy('name_video')->first()->age }}
+                                @else
+                                    12 +
+                                @endif
+                            </a>
+                        </li>
+                        <li>
+                            <div class="flex items-center">
+                                <svg class="w-3 h-3 text-gray-400 mx-1" aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2" d="m1 9 4-4-4-4" />
+                                </svg>
+                                <div
+                                    class="ml-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ml-2 dark:text-gray-400 dark:hover:text-white">
+                                    {{ $this->videos->sortBy('name_video')->first()->name_video }}</div>
+                            </div>
+                        </li>
 
-    <div class="grid grid-cols-6 gap-4">
-        <div class="col-end-7 col-span-2 web-hidden">
-            <nav class="flex" aria-label="Breadcrumb">
-                <ol class="inline-flex items-center space-x-1 md:space-x-3">
-                    <li class="inline-flex items-center">
-                        <a href="{{ route('ages.index') }}"
-                            class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white">
-                            <svg class="w-3 h-3 mr-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                fill="currentColor" viewBox="0 0 20 20">
-                                <path
-                                    d="m19.707 9.293-2-2-7-7a1 1 0 0 0-1.414 0l-7 7-2 2a1 1 0 0 0 1.414 1.414L2 10.414V18a2 2 0 0 0 2 2h3a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h3a2 2 0 0 0 2-2v-7.586l.293.293a1 1 0 0 0 1.414-1.414Z" />
-                            </svg>
-                            {{ $this->videos->sortBy('name_video')->first()->age }}
-                        </a>
-                    </li>
-                    <li>
-                        <div class="flex items-center">
-                            <svg class="w-3 h-3 text-gray-400 mx-1" aria-hidden="true"
-                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="2" d="m1 9 4-4-4-4" />
-                            </svg>
-                            <div
-                                class="ml-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ml-2 dark:text-gray-400 dark:hover:text-white">
-                                {{ $this->videos->sortBy('name_video')->first()->name }}</div>
-                        </div>
-                    </li>
+                    </ol>
+                </nav>
 
-                </ol>
-            </nav>
-
+            </div>
         </div>
-    </div>
+    @else
+        <section class="bg-white dark:bg-gray-900">
+            <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16">
+                <h1
+                    class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+                    Le mot <span class="text-red-900">{{ $this->search }}</span> introuvable</h1>
+                <div class="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4 mt-10">
+                    <a href="{{ route('videos.index', ['category_id' => $category_id, 'age_id' => $age_id]) }}"
+                        class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-sigra hover:bg-slate-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+                        </svg>
+
+                        Retourner
+
+
+                    </a>
+                </div>
+
+            </div>
+        </section>
+    @endif
+
     @php
         $video = $this->videos->sortBy('name_video')->first();
     @endphp
@@ -49,7 +78,9 @@
                     <a wire:navigate
                         href="{{ route('subcategories.index', ['subcategory_id' => $video->id, 'category_id' => $video->category_id, 'age_id' => $this->age_id]) }}"
                         class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-                        <img src="{{ $video->getThumbnailUrl() }}" alt="">
+                        <img src="{{ $video->getThumbnailUrl() }}" alt="{{ $video->name }}">
+                        <div class="text-center uppercase font-bold dark:text-white">{{ $video->name }}</div>
+
                     </a>
                 </div>
             @else

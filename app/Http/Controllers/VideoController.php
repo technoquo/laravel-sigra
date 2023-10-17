@@ -62,12 +62,24 @@ class VideoController extends Controller
 
     public function show($category_id, $age_id, $video_id)
     {
+
         $video = Video::select('name', 'vimeo')->where('id', $video_id)->first();
 
 
         return view('videos.show', [
             'category_id' => $category_id,
             'age_id' => $age_id,
+            'video' => $video
+        ]);
+    }
+
+    public function monsigra($vimeo)
+    {
+
+        $video = Video::select('name', 'vimeo')->where('vimeo', $vimeo)->first();
+
+
+        return view('videos.mon', [
             'video' => $video
         ]);
     }
