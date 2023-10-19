@@ -1,4 +1,5 @@
 <div>
+
     @if ($this->videos->sortBy('name_video')->first())
         <div class="grid grid-cols-6 gap-4">
             <div class="col-end-7 col-span-2 web-hidden">
@@ -94,7 +95,7 @@
                             <h5 class="mb-2 text-lg font-bold tracking-tight text-gray-900 dark:text-white">
                                 {{ $video->name_video }}</h5>
                         </a>
-                        @if ($video->type === 'publique')
+                        @if ($video->type === 'publique' || $this->user->role === 'ADMIN')
                             <a href="{{ route('videos.show', ['category_id' => $video->category_id, 'age_id' => $video->age_id, 'video_id' => $video->video_id]) }}"
                                 class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-gray-200 rounded-lg hover:bg-slate-800 focus:ring-4 focus:outline-none focus:ring-slate-300 dark:bg-slate-600 dark:hover:bg-slate-700 dark:focus:ring-slate-800">
                                 <img class="h-8" src="{{ asset('images/sign-language.svg') }}" alt="" />
