@@ -16,7 +16,6 @@ class Videos extends Component
 {
     public $category_id;
     public $age_id;
-    public $user;
 
     public $video_id;
 
@@ -83,7 +82,7 @@ class Videos extends Component
     public function render()
     {
 
-        $this->user = auth()->user();
+
         return view('livewire.videos');
     }
 }
