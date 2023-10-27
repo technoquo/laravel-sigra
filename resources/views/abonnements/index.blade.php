@@ -1,7 +1,7 @@
 <x-app-layout>
 
     <div class="text-center uppercase py-4">
-        <h1>Nos abonnements</h1>
+        <h1 class="text-center font-bold text-3xl mt-4">Nos abonnements</h1>
     </div>
     <iframe class="mx-auto w-full lg:max-w-xl h-64 rounded-lg sm:h-96 shadow-xl"
         src="https://player.vimeo.com/video/452867112" title="Vimeo video player" frameborder="0"

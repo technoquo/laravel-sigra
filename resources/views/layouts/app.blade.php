@@ -17,20 +17,14 @@
 
     <!-- Styles -->
     @livewireStyles
-    <script>
-        // On page load or when changing themes, best to add inline in `head` to avoid FOUC
-        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia(
-                '(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark')
-        }
-    </script>
+
 </head>
 
 <body class="font-sans antialiased">
     @yield('css')
+
     @include('layouts.partials.header')
+
     @yield('hero')
 
     <main>
@@ -43,7 +37,16 @@
     @stack('modals')
 
 
+    <script>
+        // const hamburger = document.querySelector(".hamburguer-menu svg");
+        // hamburger.addEventListener("click", function() {
+        //     const menuPrincipal = document.querySelector(".container-menu");
+        //     menuPrincipal.classList.toggle("mostrar");
+        // });
+    </script>
+
     @livewireScripts
+
 </body>
 
 </html>

@@ -24,7 +24,7 @@ class MembershipResource extends Resource
 
     public static ?string $label = 'Adhésions';
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-user-group';
 
     protected static ?string $navigationLabel = 'Adhésions';
 

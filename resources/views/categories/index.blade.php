@@ -20,29 +20,30 @@
 
             </div>
         </div>
-        <div class="flex flex-wrap space-x-4 justify-center py-4">
-            <div>
+        <div class="md:flex md:flex-row justify-center flex-wrap">
 
-                @if ($categories)
-                    @foreach ($categories as $categorie)
-                        <a href="{{ route('videos.index', ['category_id' => $categorie->id, 'age_id' => $age_id]) }}"
-                            class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100
-                        dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-                            <img src="{{ $categorie->getThumbnailUrl() }}" alt="">
-                            <div class="text-center uppercase font-bold dark:text-white">{{ $categorie->name }}</div>
+            @if ($categories)
+                @foreach ($categories as $category)
+                    <div class="px-5 py-8">
+                        <a href="{{ route('videos.index', ['category_id' => $category['id'], 'age_id' => $age_id]) }}">
+                            <img src="{{ asset('storage/' . $category['image']) }}" class="fixed-size-image"
+                                alt="">
+                            <div class="text-center uppercase font-bold dark:text-white">{{ $category['name'] }}
+                            </div>
                         </a>
-                    @endforeach
-                @else
-                    <section class="bg-white dark:bg-gray-900">
-                        <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16">
-                            <h1
-                                class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
-                                La page est introuvable</h1>
+                    </div>
+                @endforeach
+            @else
+                <section class="bg-white dark:bg-gray-900">
+                    <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16">
+                        <h1
+                            class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+                            La page est introuvable</h1>
 
-                        </div>
-                    </section>
-                @endif
-            </div>
+                    </div>
+                </section>
+            @endif
+
         </div>
     </div>
 

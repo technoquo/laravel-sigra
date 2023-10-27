@@ -22,13 +22,13 @@ class AbonnementResource extends Resource
 {
     protected static ?string $model = Abonnement::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-currency-euro';
 
     protected static ?int $navigationSort = 1;
 
     protected static ?string $navigationLabel = 'Abonnements';
 
-    protected static ?string $navigationGroup = 'Abonnements';
+    protected static ?string $navigationGroup = 'Boutique & Abonnements';
 
     public static function form(Form $form): Form
     {

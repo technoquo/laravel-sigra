@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Age;
+use App\Models\Category;
 use App\Models\Video;
 use Illuminate\Http\Request;
 
@@ -13,14 +14,32 @@ class CategoryController extends Controller
         $age = Age::find($id);
 
 
+
         if ($age) {
             $videos = $age->videos;
+
+
 
             foreach ($videos as $video) {
                 $videoId = $video->id;
                 $video = Video::find($videoId);
                 $categories = $video->categories;
+
+                foreach ($categories as $category) {
+                    $categoryId = $category->id;
+                    $allCategories[$categoryId] = $category->toArray();
+                }
             }
+
+            $uniqueCategories = array_values($allCategories);
+
+
+
+
+
+
+
+
 
             // $videos now contains a collection of Video models associated with the specified age.
         } else {
@@ -28,11 +47,11 @@ class CategoryController extends Controller
         }
 
 
-        // $categories = $video->categories;
 
-        if (isset($categories)) {
+
+        if (isset($uniqueCategories)) {
             return view('categories.index', [
-                'categories' => $categories,
+                'categories' => $uniqueCategories,
                 'age_id' => $id,
                 'age' => $age->name
             ]);
