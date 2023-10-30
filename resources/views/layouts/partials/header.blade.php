@@ -92,7 +92,7 @@
 
         <div class="container bar-navegation">
             <div class="logo">
-                <a href="#">
+                <a href="/">
                     <img class="logo_sigra" src="{{ asset('images/logo_sigra.jpg') }}" alt="logotipo">
                 </a>
             </div>

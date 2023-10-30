@@ -17,8 +17,9 @@ class AgeController extends Controller
     }
 
 
-    public function subcategories($subcategory_id, $category_id, $age_id)
+    public function subcategories($subcategory_id, $category_id, $age_id, Request $request)
     {
+
         $category = Category::where('id', $category_id)->first();
         $age = Age::find($age_id);
 
@@ -30,6 +31,7 @@ class AgeController extends Controller
             ->where('sb.id', '=', $subcategory_id)
             ->where('c.id', '=', $category_id)
             ->where('v.age_id', '=', $age_id)
+            ->where('v.name', 'LIKE', '%' . $request->input('search') . '%') // Add this line for search
             ->select('v.vimeo', 'v.name  as name_video', 'v.type', 'c.id as category_id', 'v.age_id', 'v.id as video_id', 'sb.name as name_subcategory')
             ->get();
 
@@ -39,6 +41,9 @@ class AgeController extends Controller
             'age_id' => $age_id,
             'category' => $category->name,
             'subcategory' => $subcategory->name,
+            'subcategory_id' => $subcategory_id,
+            'category_id' => $category_id,
+            'search' => $request->input('search'),
             'age' => $age->name
         ]);
     }

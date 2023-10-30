@@ -34,6 +34,9 @@ Route::get('videoteque/categories/{id:id}', [CategoryController::class, 'index']
 Route::get('videoteque/categories/videos/{category_id}/{age_id}', Videos::class)->name('videos.index');
 Route::get('videoteque/categories/videos/{category_id}/{age_id}/{video_id}', [VideoController::class, 'show'])->name('videos.show');
 Route::get('videoteque/categories/subcategories/{subcategory_id}/{category_id}/{age_id}', [AgeController::class, 'subcategories'])->name('subcategories.index');
+Route::get('videoteque/categories/subcategories/search/{subcategory_id}/{category_id}/{age_id}', [AgeController::class, 'subcategories'])->name('videos.search');
+
+//Route::get('videoteque/categories/subcategories/{subcategory_id}/{category_id}/{age_id}', Ages::class)->name('subcategories.index');
 Route::get('abonnements', [AbonnementController::class, 'index'])->name('abonnements.index');
 Route::get('laboutique', [LaBoutiqueController::class, 'index'])->name('laboutique.index');
 Route::get('monsigra', Monsigra::class)->name('monsigra.index');

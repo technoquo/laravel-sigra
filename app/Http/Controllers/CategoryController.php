@@ -25,9 +25,12 @@ class CategoryController extends Controller
                 $video = Video::find($videoId);
                 $categories = $video->categories;
 
+
                 foreach ($categories as $category) {
-                    $categoryId = $category->id;
-                    $allCategories[$categoryId] = $category->toArray();
+                    if ($category->status == 1) {
+                        $categoryId = $category->id;
+                        $allCategories[$categoryId] = $category->toArray();
+                    }
                 }
             }
 

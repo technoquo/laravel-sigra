@@ -51,13 +51,10 @@ class Videos extends Component
         foreach ($videos as $video) {
             $videoId = $video->id;
             $video = Video::find($videoId);
-
-
-            if ($video->subcategory_id) {
-
-                $videos = SubCategory::with('videos')->get();
-            } else {
-
+            $videos = SubCategory::with('videos')
+                ->where('category_id', $this->category_id)
+                ->get();
+            if ($videos->isEmpty()) {
                 $videos = DB::table('category_video as cv')
                     ->join('categories as c', 'cv.category_id', '=', 'c.id')
                     ->join('videos as v', 'cv.video_id', '=', 'v.id')
@@ -67,8 +64,14 @@ class Videos extends Component
                     ->where('a.id', $this->age_id)
                     ->where('v.name', 'like', "%{$this->search}%")
                     ->get();
+            } else {
+                $videos = SubCategory::with('videos')->get();
             }
         }
+
+
+
+
 
 
 

@@ -80,6 +80,14 @@ class MissionResource extends Resource
                                 ->image()
                                 ->imageEditor()
                                 ->required()
+                        ])->collapsible(),
+                        Section::make([
+                            FileUpload::make('image2')
+                                ->directory('form-attachments')
+                                ->preserveFilenames()
+                                ->image()
+                                ->imageEditor()
+                                ->required()
                         ])->collapsible()
                     ]),
             ]);
@@ -90,6 +98,7 @@ class MissionResource extends Resource
         return $table
             ->columns([
                 ImageColumn::make('image'),
+                ImageColumn::make('image2'),
                 TextColumn::make('title')
                     ->searchable()
                     ->sortable(),

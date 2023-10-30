@@ -75,15 +75,17 @@
 
         @foreach ($this->videos->sortBy('name_video') as $video)
             @if (!$video->vimeo)
-                <div class="px-3 md:mb-6">
-                    <a wire:navigate
-                        href="{{ route('subcategories.index', ['subcategory_id' => $video->id, 'category_id' => $video->category_id, 'age_id' => $this->age_id]) }}"
-                        class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-                        <img src="{{ $video->getThumbnailUrl() }}" alt="{{ $video->name }}">
-                        <div class="text-center uppercase font-bold dark:text-white">{{ $video->name }}</div>
+                @if ($video->category_id === intval($this->category_id))
+                    <div class="px-3 md:mb-6">
+                        <a wire:navigate
+                            href="{{ route('subcategories.index', ['subcategory_id' => $video->id, 'category_id' => $video->category_id, 'age_id' => $this->age_id]) }}"
+                            class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                            <img src="{{ $video->getThumbnailUrl() }}" alt="{{ $video->name }}">
+                            <div class="text-center uppercase font-bold dark:text-white">{{ $video->name }}</div>
 
-                    </a>
-                </div>
+                        </a>
+                    </div>
+                @endif
             @else
                 <div
                     class="max-w-sm bg-white border-2  border-orange-600 border-solid rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
