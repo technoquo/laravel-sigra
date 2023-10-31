@@ -25,11 +25,15 @@
             @if ($categories)
                 @foreach ($categories as $category)
                     <div class="px-5 py-8">
-                        <a href="{{ route('videos.index', ['category_id' => $category['id'], 'age_id' => $age_id]) }}">
-                            <img src="{{ asset('storage/' . $category['image']) }}" class="fixed-size-image"
-                                alt="">
-                            <div class="text-center uppercase font-bold dark:text-white">{{ $category['name'] }}
-                            </div>
+                        @if ($category['id'] === 10)
+                            <a href="https://www.lsfb.be/thisisnotmagic/frances/frances.php" target="_blank">
+                            @else
+                                <a
+                                    href="{{ route('videos.index', ['category_id' => $category['id'], 'age_id' => $age_id]) }}">
+                        @endif
+                        <img src="{{ asset('storage/' . $category['image']) }}" class="fixed-size-image" alt="">
+                        <div class="text-center uppercase font-bold dark:text-white">{{ $category['name'] }}
+                        </div>
                         </a>
                     </div>
                 @endforeach

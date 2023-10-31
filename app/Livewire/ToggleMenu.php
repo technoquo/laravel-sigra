@@ -6,7 +6,7 @@ use Livewire\Component;
 
 class ToggleMenu extends Component
 {
-    public $mostrar = true;
+    public $mostrar = false;
 
     public function toggleMenu()
     {

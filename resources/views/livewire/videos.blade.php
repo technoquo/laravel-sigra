@@ -71,16 +71,17 @@
         @include('videos.partials.search-box')
     @endif
 
-    <div class="flex flex-wrap gap-5 justify-center py-8">
+    <div class="md:flex md:flex-row justify-center flex-wrap">
 
         @foreach ($this->videos->sortBy('name_video') as $video)
             @if (!$video->vimeo)
                 @if ($video->category_id === intval($this->category_id))
-                    <div class="px-3 md:mb-6">
+                    <div class="px-5 py-8">
                         <a wire:navigate
                             href="{{ route('subcategories.index', ['subcategory_id' => $video->id, 'category_id' => $video->category_id, 'age_id' => $this->age_id]) }}"
-                            class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-                            <img src="{{ $video->getThumbnailUrl() }}" alt="{{ $video->name }}">
+                            class="max-w-sm p-6">
+                            <img class="fixed-size-image" src="{{ $video->getThumbnailUrl() }}"
+                                alt="{{ $video->name }}">
                             <div class="text-center uppercase font-bold dark:text-white">{{ $video->name }}</div>
 
                         </a>
@@ -88,15 +89,20 @@
                 @endif
             @else
                 <div
-                    class="max-w-sm bg-white border-2  border-orange-600 border-solid rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                    <a href="#">
-                        <img class="h-auto w-80 rounded-lg" src="https://vumbnail.com/{{ $video->vimeo }}.jpg">
-                    </a>
-                    <div class="p-5">
-                        <a href="#">
-                            <h5 class="mb-2 text-lg font-bold tracking-tight text-gray-900 dark:text-white">
-                                {{ $video->name_video }}</h5>
+                    class="max-w-sm bg-white border-2  border-orange-600 border-solid rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 m-4">
+                    @if ($video->type === 'publique' || (auth()->user() && auth()->user()->role === 'ADMIN'))
+                        <a
+                            href="{{ route('videos.show', ['category_id' => $video->category_id, 'age_id' => $video->age_id, 'video_id' => $video->video_id]) }}">
+                            <img class="h-auto w-80 rounded-lg" src="https://vumbnail.com/{{ $video->vimeo }}.jpg">
                         </a>
+                    @else
+                        <a href="{{ route('abonnements.index') }}">
+                            <img class="h-auto w-80 rounded-lg" src="https://vumbnail.com/{{ $video->vimeo }}.jpg">
+                        </a>
+                    @endif
+                    <div class="p-5">
+                        <h5 class="mb-2 text-lg font-bold tracking-tight text-gray-900 dark:text-white">
+                            {{ $video->name_video }}</h5>
                         @if ($video->type === 'publique' || (auth()->user() && auth()->user()->role === 'ADMIN'))
                             <a href="{{ route('videos.show', ['category_id' => $video->category_id, 'age_id' => $video->age_id, 'video_id' => $video->video_id]) }}"
                                 class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-gray-200 rounded-lg hover:bg-slate-800 focus:ring-4 focus:outline-none focus:ring-slate-300 dark:bg-slate-600 dark:hover:bg-slate-700 dark:focus:ring-slate-800">

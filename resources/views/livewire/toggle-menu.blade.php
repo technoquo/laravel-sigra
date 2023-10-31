@@ -11,7 +11,7 @@
             </svg>
         </div>
     </div>
-    <div class="{{ $mostrar ? 'container-menu' : 'container-menu-m' }}">
+    <div class="{{ $mostrar ? 'container-menu-m' : 'container-menu' }}">
         <nav class="menu-principal">
             <ul class="menu">
                 <li class="{{ Route::is('') ? 'current_page_item' : '' }}">

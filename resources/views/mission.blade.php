@@ -7,12 +7,12 @@
             <div class=" basis-1/2">
 
 
-                @if ($mission->image2)
+                @if ($mission->image)
                     <figure class="max-w-lg">
-                        <img class="h-auto max-w-full rounded-lg" src="{{ asset('storage/' . $mission->image2) }}"
+                        <img class="h-auto max-w-full rounded-lg" src="{{ asset('storage/' . $mission->image) }}"
                             alt="{{ $mission->title }}">
                         <figcaption class="mt-2 text-sm text-center text-gray-500 dark:text-gray-400">
-                            {{ $mission->title }}</figcaption>
+                            {{ $mission->texte_alternatif }}</figcaption>
                     </figure>
                 @endif
 

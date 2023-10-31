@@ -82,13 +82,11 @@ class MissionResource extends Resource
                                 ->required()
                         ])->collapsible(),
                         Section::make([
-                            FileUpload::make('image2')
-                                ->directory('form-attachments')
-                                ->preserveFilenames()
-                                ->image()
-                                ->imageEditor()
+                            TextInput::make('texte_alternatif')
+                                ->label('Texte Alternatif')
                                 ->required()
-                        ])->collapsible()
+                        ]),
+
                     ]),
             ]);
     }
@@ -97,9 +95,11 @@ class MissionResource extends Resource
     {
         return $table
             ->columns([
-                ImageColumn::make('image'),
-                ImageColumn::make('image2'),
                 TextColumn::make('title')
+                    ->searchable()
+                    ->sortable(),
+                ImageColumn::make('image'),
+                TextColumn::make('texte_alternatif')
                     ->searchable()
                     ->sortable(),
                 IconColumn::make('status')

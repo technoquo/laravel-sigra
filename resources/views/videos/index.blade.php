@@ -82,22 +82,27 @@
         @foreach ($videos->sortBy('name_video') as $video)
             <div
                 class="max-w-sm bg-white border-2  border-orange-600 border-solid rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                <a href="#">
-                    <img class="h-auto w-80 rounded-lg" src="https://vumbnail.com/{{ $video->vimeo }}.jpg">
-                </a>
-                <div class="p-5">
-                    <a href="#">
-                        <h5 class="mb-2 text-lg font-bold tracking-tight text-gray-900 dark:text-white">
-                            {{ $video->name_video }}</h5>
+                @if ($video->type === 'publique' || (auth()->user() && auth()->user()->role === 'ADMIN'))
+                    <a
+                        href="{{ route('videos.show', ['category_id' => $video->category_id, 'age_id' => $video->age_id, 'video_id' => $video->video_id]) }}">
+                        <img class="h-auto w-80 rounded-lg" src="https://vumbnail.com/{{ $video->vimeo }}.jpg">
                     </a>
-                    @if ($video->type === 'publique')
+                @else
+                    <a href="{{ route('abonnements.index') }}">
+                        <img class="h-auto w-80 rounded-lg" src="https://vumbnail.com/{{ $video->vimeo }}.jpg">
+                    </a>
+                @endif
+                <div class="p-5">
+                    <h5 class="mb-2 text-lg font-bold tracking-tight text-gray-900 dark:text-white">
+                        {{ $video->name_video }}</h5>
+                    @if ($video->type === 'publique' || (auth()->user() && auth()->user()->role === 'ADMIN'))
                         <a href="{{ route('videos.show', ['category_id' => $video->category_id, 'age_id' => $video->age_id, 'video_id' => $video->video_id]) }}"
                             class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-gray-200 rounded-lg hover:bg-slate-800 focus:ring-4 focus:outline-none focus:ring-slate-300 dark:bg-slate-600 dark:hover:bg-slate-700 dark:focus:ring-slate-800">
                             <img class="h-8" src="{{ asset('images/sign-language.svg') }}" alt="" />
 
                         </a>
                     @else
-                        <a href="#"
+                        <a href="{{ route('abonnements.index') }}"
                             class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-slate-700 rounded-lg hover:bg-slate-800 focus:ring-4 focus:outline-none focus:ring-slate-300 dark:bg-slate-600 dark:hover:bg-slate-700 dark:focus:ring-slate-800">
                             Abbonement
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"

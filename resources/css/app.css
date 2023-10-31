@@ -21,7 +21,7 @@
 :root {
     /** Fuentes **/
     --main-source: 'Noto Sans', sans-serif;
-    --source-headings: 'Open Sans', cursive;
+    --source-headings: 'Noto Sans', sans-serif;
     /** Colores **/
     --primary: #2f2e2e;
     --bg-color: #D9D494;
@@ -310,7 +310,7 @@ body.home .header {
 }
 
 .menu-principal a {
-    font-family: var(--source-headings);
+    /* font-family: var(--source-headings); */
     display: block;
     text-align: center;
     color: var(--font-color-second);

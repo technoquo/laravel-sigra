@@ -9,5 +9,5 @@ class Mission extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'slug', 'description', 'image', 'image2', 'status'];
+    protected $fillable = ['title', 'slug', 'description', 'image', 'texte_alternatif', 'status'];
 }
