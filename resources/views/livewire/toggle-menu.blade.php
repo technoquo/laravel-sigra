@@ -23,12 +23,12 @@
                 <li class="{{ Route::is('laboutique.index') ? 'current_page_item' : '' }}">
                     <a href="{{ route('laboutique.index') }}">La boutique</a>
                 </li>
-                <li class="{{ Route::is('monsigra.index') ? 'current_page_item' : '' }}">
+                {{-- <li class="{{ Route::is('monsigra.index') ? 'current_page_item' : '' }}">
                     <a wire:navigate href="{{ route('monsigra.index') }}">Mon Sigra</a>
                 </li>
                 <li class="{{ Route::is('abonnements.index') ? 'current_page_item' : '' }}">
                     <a wire:navigate href="{{ route('abonnements.index') }}">Abonnements</a>
-                </li>
+                </li> --}}
                 <li class="">
                     <a wire:navigate href="{{ route('send-email') }}">Contact</a>
                 </li>
