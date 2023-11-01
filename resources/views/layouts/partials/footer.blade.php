@@ -5,13 +5,13 @@
                 <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Organisation</h2>
                 <ul class="text-gray-500 dark:text-gray-400 font-medium">
                     <li class="mb-4">
-                        <a href="#" class=" hover:underline">Notre Équipe</a>
+                        <a href="#" target="_blank" class=" hover:underline">Notre Équipe</a>
                     </li>
                     <li class="mb-4">
-                        <a href="#" class="hover:underline">Nos Actions</a>
+                        <a href="#" target="_blank" class="hover:underline">Nos Actions</a>
                     </li>
                     <li class="mb-4">
-                        <a href="#" class="hover:underline">LSFB ASBL</a>
+                        <a href="https://www.lsfb.be/" target="_blank" class="hover:underline">LSFB ASBL</a>
                     </li>
                 </ul>
             </div>
@@ -19,13 +19,15 @@
                 <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Centre d'aide</h2>
                 <ul class="text-gray-500 dark:text-gray-400 font-medium">
                     <li class="mb-4">
-                        <a href="#" class="hover:underline">Instagram</a>
+                        <a href="https://www.facebook.com/profile.php?id=100063516312585" target="_blank"
+                            class="hover:underline">Instagram</a>
                     </li>
                     <li class="mb-4">
-                        <a href="#" class="hover:underline">Facebook</a>
+                        <a href="https://www.instagram.com/sigra.lsfb_asbl/" target="_blank"
+                            class="hover:underline">Facebook</a>
                     </li>
                     <li class="mb-4">
-                        <a href="#" class="hover:underline">Contactez-nous</a>
+                        <a href="{{ route('contact.index') }}" class="hover:underline">Contactez-nous</a>
                     </li>
                 </ul>
             </div>

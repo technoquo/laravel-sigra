@@ -30,7 +30,10 @@
             </div>
         @endforeach
         @empty($text)
-            {{ '' }}
+            <p class="text-center text-gray-700 dark:text-white w-2/3">Rejoignez notre communauté dès aujourd'hui et accédez
+                à un
+                contenu exclusif ! L'abonnement est votre passe pour un monde de vidéos passionnantes. N'hésitez pas à vous
+                inscrire et à faire partie de cette expérience unique !</p>
         @else
             <p class="text-center text-gray-700 dark:text-white">{{ $text }}.</p>
         @endempty

@@ -90,7 +90,7 @@
             @else
                 @if ($video->vimeo != 879944724)
                     <div
-                        class="max-w-sm bg-white border-2  border-orange-600 border-solid rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 m-4">
+                        class="max-w-sm bg-white border-2  border-green-600 border-solid rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 m-4">
 
                         @if ($video->type === 'publique' || (auth()->user() && auth()->user()->role === 'ADMIN'))
                             <a
