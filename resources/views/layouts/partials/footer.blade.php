@@ -5,10 +5,10 @@
                 <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Organisation</h2>
                 <ul class="text-gray-500 dark:text-gray-400 font-medium">
                     <li class="mb-4">
-                        <a href="#" target="_blank" class=" hover:underline">Notre Équipe</a>
+                        <a href="qui-sommes-nous" class=" hover:underline">Notre Équipe</a>
                     </li>
                     <li class="mb-4">
-                        <a href="#" target="_blank" class="hover:underline">Nos Actions</a>
+                        <a href="nos-actions" class="hover:underline">Nos Actions</a>
                     </li>
                     <li class="mb-4">
                         <a href="https://www.lsfb.be/" target="_blank" class="hover:underline">LSFB ASBL</a>
