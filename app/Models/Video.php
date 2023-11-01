@@ -12,7 +12,7 @@ class Video extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'age_id', 'subcategory_id', 'vimeo', 'status', 'type'];
+    protected $fillable = ['name', 'age_id', 'subcategory_id', 'vimeo', 'attachment', 'type', 'status', 'orden'];
 
 
     public function ages(): BelongsTo

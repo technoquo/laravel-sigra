@@ -25,16 +25,30 @@ class AgeController extends Controller
 
         $subcategory = SubCategory::where('id', $subcategory_id)->first();
 
-        $videos = DB::table('categories as c')
-            ->join('subcategories as sb', 'c.id', '=', 'sb.category_id')
-            ->join('videos as v', 'v.subcategory_id', '=', 'sb.id')
-            ->where('sb.id', '=', $subcategory_id)
-            ->where('c.id', '=', $category_id)
-            ->where('v.age_id', '=', $age_id)
-            ->where('v.name', 'LIKE', '%' . $request->input('search') . '%') // Add this line for search
-            ->select('v.vimeo', 'v.name  as name_video', 'v.type', 'c.id as category_id', 'v.age_id', 'v.id as video_id', 'sb.name as name_subcategory')
-            ->get();
+        if ($subcategory_id == 1) {
 
+            $videos = DB::table('categories as c')
+                ->join('subcategories as sb', 'c.id', '=', 'sb.category_id')
+                ->join('videos as v', 'v.subcategory_id', '=', 'sb.id')
+                ->where('sb.id', '=', $subcategory_id)
+                ->where('c.id', '=', $category_id)
+                ->where('v.age_id', '=', $age_id)
+                ->where('v.name', 'LIKE', '%' . $request->input('search') . '%') // Add this line for search
+                ->where('v.orden', '!=', 0)
+                ->orderBy('v.orden', 'ASC')
+                ->select('v.vimeo', 'v.name  as name_video', 'v.type', 'c.id as category_id', 'v.age_id', 'v.id as video_id', 'v.attachment', 'sb.name as name_subcategory')
+                ->get();
+        } else {
+            $videos = DB::table('categories as c')
+                ->join('subcategories as sb', 'c.id', '=', 'sb.category_id')
+                ->join('videos as v', 'v.subcategory_id', '=', 'sb.id')
+                ->where('sb.id', '=', $subcategory_id)
+                ->where('c.id', '=', $category_id)
+                ->where('v.age_id', '=', $age_id)
+                ->where('v.name', 'LIKE', '%' . $request->input('search') . '%') // Add this line for search
+                ->select('v.vimeo', 'v.name  as name_video', 'v.type', 'c.id as category_id', 'v.age_id', 'v.id as video_id', 'v.attachment', 'sb.name as name_subcategory')
+                ->get();
+        }
 
         return view('videos.index', [
             'videos' => $videos,

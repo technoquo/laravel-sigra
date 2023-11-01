@@ -2,18 +2,19 @@
 
 namespace App\Filament\Resources;
 
-use App\Enums\VideoTypeEnum;
 use Filament\Forms;
 use Filament\Tables;
 use App\Models\Video;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
+use App\Enums\VideoTypeEnum;
 use Filament\Resources\Resource;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Toggle;
 use Filament\Forms\Components\Section;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\FileUpload;
 use Filament\Tables\Filters\SelectFilter;
 use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\VideoResource\Pages;
@@ -39,8 +40,7 @@ class VideoResource extends Resource
                 Section::make([
                     TextInput::make('name')->label('nom de la vidéo')
                         ->required(),
-                    TextInput::make('vimeo')->label('code viméo')
-                        ->required(),
+                    TextInput::make('orden')->label('ordonner')->default(0),
                     Toggle::make('status')
                         ->label('Visibilité')
                         ->helperText('Activer ou désactiver la visibilité des videos')
@@ -49,7 +49,13 @@ class VideoResource extends Resource
                         ->options([
                             'publique' => VideoTypeEnum::PUBLIQUE->value,
                             'privé' => VideoTypeEnum::PRIVE->value,
-                        ])->required()
+                        ])->required(),
+                    FileUpload::make('attachment')
+                        ->label('Affiche')
+                        ->directory('form-attachments')
+                        ->preserveFilenames()
+                        ->image()
+                        ->imageEditor()
                 ])->columns(2),
                 Section::make('Les associations')
                     ->schema([
@@ -81,6 +87,10 @@ class VideoResource extends Resource
 
                 TextColumn::make('categories.name')
                     ->label('catégories')
+                    ->searchable()
+                    ->sortable(),
+                TextColumn::make('subcategories.name')
+                    ->label('subcategories')
                     ->searchable()
                     ->sortable(),
                 TextColumn::make('type')
