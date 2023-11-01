@@ -20,11 +20,11 @@
                 <ul class="text-gray-500 dark:text-gray-400 font-medium">
                     <li class="mb-4">
                         <a href="https://www.facebook.com/profile.php?id=100063516312585" target="_blank"
-                            class="hover:underline">Instagram</a>
+                            class="hover:underline">Facebook</a>
                     </li>
                     <li class="mb-4">
                         <a href="https://www.instagram.com/sigra.lsfb_asbl/" target="_blank"
-                            class="hover:underline">Facebook</a>
+                            class="hover:underline">Instagram</a>
                     </li>
                     <li class="mb-4">
                         <a href="{{ route('contact.index') }}" class="hover:underline">Contactez-nous</a>
