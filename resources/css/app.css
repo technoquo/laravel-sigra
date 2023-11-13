@@ -184,10 +184,10 @@ body.home .header {
     align-items: center;
 }
 
-.bar-navegation .logo_sigra {
-    border-radius: 50%;
+.bar-navegation .logo_sigra, .logo_sigra {
+    border-radius: 50%; 
 }
-
+ 
 @media (min-width: 970px) {
     .bar-navegation {
         flex-direction: row;
