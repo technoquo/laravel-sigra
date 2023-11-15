@@ -8,7 +8,7 @@
                 class="mt-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
                 {{ $video->name }}</h1>
             <div class="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4 mt-10">
-                <a href="{{ route('videos.index', ['category_id' => $category_id, 'age_id' => $age_id]) }}"
+                <a href="{{ url()->previous() }}"
                     class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-sigra hover:bg-slate-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="w-6 h-6">
