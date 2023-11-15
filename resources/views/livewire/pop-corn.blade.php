@@ -1,5 +1,5 @@
 <div>
-    @include('videos.partials.search-box')
+    {{-- @include('videos.partials.search-box') --}}
 
 
     <div class="md:flex md:flex-row justify-center flex-wrap">
