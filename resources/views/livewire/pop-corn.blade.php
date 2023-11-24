@@ -4,7 +4,7 @@
 
     <div class="md:flex md:flex-row justify-center flex-wrap">
 
-        @foreach ($this->videos as $video)
+        @foreach ($this->videos->unique('name') as $video)
             @if ($video->vimeo != 879944724)
                 <div
                     class="max-w-sm bg-white border-2  border-green-600 border-solid rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 m-4">

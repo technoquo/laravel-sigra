@@ -40,13 +40,17 @@ class PopCorn extends Component
 
     public function loadVideo()
     {
-        $this->videos = Video::select('name', DB::raw('MIN(id) as id'), DB::raw('MIN(age_id) as age_id'), DB::raw('MIN(vimeo) as vimeo'))
-            ->where('status', 1)
-            ->when($this->search, function ($query) {
-                $query->where('name', 'like', '%' . $this->search . '%');
+        $this->videos = Video::select('*')
+            ->whereIn('id', function ($query) {
+                $query->select(DB::raw('MIN(id)'))
+                    ->from('videos')
+                    ->where('status', 1)
+                    ->when($this->search, function ($subquery) {
+                        $subquery->where('name', 'like', '%' . $this->search . '%');
+                    })
+                    ->groupBy('name', 'subcategory_id', 'age_id');
             })
             ->orderBy('name')
-            ->groupBy('name')
             ->get();
     }
     public function render()
