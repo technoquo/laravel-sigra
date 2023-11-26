@@ -1,5 +1,4 @@
 <div class="flex justify-center">
-
     <div class="md:flex md:flex-row justify-center flex-wrap">
         @foreach ($this->ages as $age)
             <div class="px-5 py-8">
@@ -16,7 +15,6 @@
                     {{ $categoryPopCorn['name'] }}
                 </div>
             </a>
-
         </div>
     </div>
 </div>
