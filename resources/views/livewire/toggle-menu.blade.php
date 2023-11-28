@@ -30,7 +30,7 @@
                     <a wire:navigate href="{{ route('abonnements.index') }}">Abonnements</a>
                 </li> --}}
                 <li class="">
-                    <a wire:navigate href="{{ route('send-email') }}">Contact</a>
+                    <a wire:navigate href="{{ route('contact.index') }}">Contact</a>
                 </li>
             </ul>
         </nav>

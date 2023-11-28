@@ -1,31 +1,39 @@
 <x-app-layout>
-    <main class="container seccion contenido-centrado">
-        <h1 class="text-7xl font-semibold mb-4 text-center">Formulaire de contact</h1>
-        <div class="mb-6">
-            <label for="large-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Votre nom
-                (obligatoire)</label>
-            <input type="text" id="nom-input"
-                class="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+    <div class="mt-4">
+        <h2 class="text-center font-bold text-3xl mt-4">Connectez-vous avec nous. Nous sommes prêts à vous aider avec
+            plaisir</h2>
+    </div>
+    <div class="contact-links-container">
+        <figure>
+            <img src="http://sigra.test/storage/form-attachments/team.jpeg" alt="team">
+        </figure>
+        <div class="contact-links">
+            <div class="specific-contact">
+                <div class="logo">
+
+                    <img class="logo_sigra" src="{{ asset('images/logo_sigra.jpg') }}" alt="logotipo">
+
+                </div>
+            </div>
+            <p class="general-contact">
+                <strong class="text-lg">Nous contacter</strong>
+                <a href="https://www.google.com/maps/place/Malabar+Design/@48.8665485,2.4173015,15z/data=!4m5!3m4!1s0x0:0xa780f23fcfd23194!8m2!3d48.8665485!4d2.4173015"
+                    target="_blank" class=" text-black">Rue du lombard, 8 5000 Namur</a>
+                <a href="mailto:sigra@lsfb.be" target="_blank" class="text-black"><span>sigra@lsfb.be</span></a>
+                <a href="https://www.google.com/maps/place/Malabar+Design/@48.8665485,2.4173015,15z/data=!4m5!3m4!1s0x0:0xa780f23fcfd23194!8m2!3d48.8665485!4d2.4173015"
+                    target="_blank" class="text-black">
+                    <span>
+                        <svg class="icon map-marker inline-block w-4 h-4" viewBox="0 0 2.343 3.539"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M1.171 0C.524 0 0 .604 0 1.251c0 .294 1.171 2.288 1.171 2.288s1.172-1.993 1.172-2.288C2.343.604 1.818 0 1.171 0zm0 1.773a.6.6 0 1 1 0-1.2.6.6 0 0 1 0 1.2z"
+                                class=""></path>
+                        </svg>
+                        Google Maps
+                    </span>
+                </a>
+            </p>
         </div>
-        <div class="mb-6">
-            <label for="base-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Votre e-mail
-                (obligatoire)</label>
-            <input type="email" id="email-input"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-        </div>
-        <div class="mb-6">
-            <label for="large-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Sujet
-                (obligatoire)</label>
-            <textarea id="nom-input"
-                class="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-        </textarea>
-        </div>
-        <div class="mb-6">
-            <label for="large-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Votre vidéo
-                (YouTube) en LSFB</label>
-            <input type="text" id="video-input"
-                class="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-        </div>
-        </div>
-    </main>
+    </div>
+
 </x-app-layout>
