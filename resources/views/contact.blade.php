@@ -5,7 +5,7 @@
     </div>
     <div class="contact-links-container">
         <figure>
-            <img src="http://sigra.test/storage/form-attachments/team.jpeg" alt="team">
+            <img src="storage/form-attachments/team.jpeg" alt="team">
         </figure>
         <div class="contact-links">
             <div class="specific-contact">
