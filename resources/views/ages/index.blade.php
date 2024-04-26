@@ -1,4 +1,7 @@
 <x-app-layout>
+    <div class="flex justify-center pt-5 py-5">
+       <livewire:search />
+   </div>
     <div class="mt-4">
         <h2 class="text-center font-bold text-3xl mt-4">Sélectionnez votre groupe d'âge</h2>
     </div>

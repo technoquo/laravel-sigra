@@ -15,6 +15,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\AbonnementController;
 use App\Http\Controllers\LaBoutiqueController;
 use App\Livewire\PopCorn;
+use App\Livewire\Results;
 use App\Livewire\SendEmail;
 
 /*
@@ -45,6 +46,7 @@ Route::get('videoteque/categories/videos/{vimeo}', [VideoController::class, 'mon
 Route::get('/info/{slug}', [InfoController::class, 'index'])->name('info.index');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
 Route::get('/send-email', SendEmail::class)->name('send-email');
+Route::get('/resultat/{video_id}', Results::class)->name('resultat.index');
 
 Route::get('signpopocorn', PopCorn::class)->name('signs-popcorn');
 

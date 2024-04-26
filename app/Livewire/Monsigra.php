@@ -39,6 +39,7 @@ class Monsigra extends Component
 
 
         $monsigras = Membership::where('users_id', Auth::id())->get();
+        
         foreach ($monsigras as $monsigra) {
 
             foreach ($monsigra->videos_id as $value) {
@@ -54,7 +55,8 @@ class Monsigra extends Component
             $videoIdsArray[] = $videoId;
         }
 
-        return $videoIdsArray;
+        
+        return $videoIdsArray ?? [];
     }
 
 
