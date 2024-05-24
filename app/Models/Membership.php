@@ -30,4 +30,9 @@ class Membership extends Model
         return $this->BelongsTo(Abonnement::class);
         // Include the age_id in the pivot table
     }
+
+    public function videos()
+    {
+        return $this->belongsTo(Video::class);
+    }
 }

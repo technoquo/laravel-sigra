@@ -40,4 +40,9 @@ class Video extends Model
 
         return $this->belongsTo(SubCategory::class, 'subcategory_id');
     }
+
+    public function membership(): HasMany
+    {
+        return $this->hasMany(Membership::class, 'videos_id');
+    }
 }
