@@ -35,6 +35,7 @@ class Search extends Component
 
                 $results = Video::where('name', 'like', '%' . $this->search . '%')
                     ->where('type', '!=', 'privé')
+                    ->select('id', 'name') // Selecciona solo el nombre para agrupar
                     ->distinct()
                     ->groupBy('id', 'name') // Agrupa por nombre para evitar duplicados
                     ->get()
