@@ -11,6 +11,8 @@ class CategoryController extends Controller
 {
     public function index($id)
     {
+
+        $allCategories = [];
         $age = Age::find($id);
 
 
